@@ -1,0 +1,62 @@
+Havyaka Swaada Website
+Version: 1.2.5
+Released: 2026-08-08
+
+Changelog:
+- 1.2.5 (2026-08-08): Fixed two visual bugs on product cards. (1) The
+  "SIGNATURE" badge was overlapping longer product titles like "Nellikaayi
+  Puliyogare Gojju" and "Karibevu Puliyogare Gojju" — increased the title's
+  reserved space and slightly reduced the badge size so it never overlaps.
+  (2) The "+40g FREE · 20% Extra" badge had low text/background contrast
+  (dark brown text on gold) — switched to white text on a deeper gold/bronze
+  background for clearer legibility, matching the boldness of the green
+  "Save ₹X" badge.
+- 1.2.4 (2026-08-08): Added Instagram (@havyaka.swaada) and Facebook links.
+  Shown in two places: as new rows in the Contact section (alongside Phone,
+  Website, Location), and as compact round icon links in the footer, below
+  the brand blurb. Both open in a new tab.
+- 1.2.3 (2026-08-08): Restyled the Puliyogare Gojju Specials "+40g FREE ·
+  20% Extra" note to match the look of the Gojju & Mango Specials "Save ₹X"
+  badge — it's now a highlighted pill (gold, to distinguish it from the
+  green savings badge) on its own line below the price, instead of plain
+  parenthesised text running inline. Variant rows now stack price and any
+  badge vertically for both cases.
+- 1.2.2 (2026-08-07): Updated the 500g price for Mandan Gojju and Mango GuLa
+  from ₹499 to ₹599. Savings badge recalculates automatically — now shows
+  "Save ₹146 · 20%" on the 500g pack (previously ₹246 · 33% at ₹499).
+- 1.2.1 (2026-08-07): Savings badge on Gojju & Mango Specials now also shows
+  the percentage saved alongside the rupee amount, e.g. "Save ₹49 · 16%"
+  (percentage is savings ÷ the 100g-equivalent price).
+- 1.2.0 (2026-08-07): Corrected Mango GuLa's largest pack size from 600g to
+  500g (price unchanged at ₹499). Added a "Save ₹X" badge on Gojju & Mango
+  Specials (Mandan Gojju, Mango GuLa) showing the savings on 200g and 500g
+  packs versus buying that quantity at the 100g rate. Reformatted Puliyogare
+  Gojju Specials pack labels — "FREE" now appears in full caps inside the
+  parentheses alongside the extra-quantity note (e.g. "200g ₹299 (+40g FREE
+  · 20% Extra)") instead of running into the plain pack label. NutriPower Mix
+  savings badges are not yet added — pending real gram quantities per size
+  from the brand owner to avoid showing an invented/inaccurate comparison.
+- 1.1.1 (2026-08-07): Fixed a bug in the ordering flow — pack sizes/variants
+  (e.g. Shot / Medium / Full, or 100g / 200g / 500g) previously behaved as a
+  single choice sharing one quantity. Each size now has its own independent
+  quantity stepper, so e.g. 1 Shot + 2 Medium + 1 Full of the same product
+  can all be added to the order at once. Each is sent as its own line in the
+  WhatsApp order message.
+- 1.1.0 (2026-08-07): Reworked Products section — all 5 categories now render
+  as one continuous scrollable list (no click-to-switch tabs). Added an
+  in-page ordering flow: each product card has a size/variant selector and a
+  quantity stepper; selections build a running order shown in a floating
+  cart panel (bottom-right). Every "Order on WhatsApp" button across the
+  site (header, hero, how-to-order, contact, and the cart panel) now sends
+  an itemised message listing every selected product, variant, and quantity;
+  if nothing is selected, it falls back to the original generic order
+  message. Updated How to Order steps and FAQ copy to describe the new flow.
+- 1.0.1 (2026-08-07): Replaced placeholder SVG art with real brand assets —
+  favicon.png (site favicon + apple-touch-icon), logo-mark.png (header/footer
+  logo, icon-only), logo-full.jpg (circular wordmark emblem, added to About
+  section), and hero.jpg (real hero photograph replacing the illustrated
+  flat-lay). Category icons remain placeholder SVGs pending category photos.
+- 1.0.0 (2026-08-07): Initial build — Home, Products (5 categories, 12 products),
+  About, How to Order, Storage & Usage Notes, FAQ, Contact, Footer with policy
+  placeholders (Privacy, Terms, Shipping, Refund), custom SVG illustrations,
+  WhatsApp ordering integration.

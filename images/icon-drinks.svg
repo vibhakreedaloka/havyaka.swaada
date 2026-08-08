@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Traditional drinks icon">
+  <circle cx="50" cy="50" r="46" fill="#F3E9D4"/>
+  <path d="M32 24c0-2.5 36-2.5 36 0l-6 52c0 4-24 4-24 0z" fill="none" stroke="#3A2A1C" stroke-width="2.4"/>
+  <ellipse cx="50" cy="24" rx="18" ry="5" fill="none" stroke="#3A2A1C" stroke-width="2"/>
+  <path d="M35 40h30M34 55h32" stroke="#C79A3D" stroke-width="1.6" opacity="0.8"/>
+  <path d="M64 30c8-4 14 2 12 10-2 7-11 8-14 3" fill="none" stroke="#5C7A52" stroke-width="2" stroke-linecap="round"/>
+</svg>

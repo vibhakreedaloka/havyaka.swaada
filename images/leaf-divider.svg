@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" role="presentation" aria-hidden="true">
+  <path d="M0 20h78" stroke="#D9C7A0" stroke-width="1"/>
+  <path d="M122 20h78" stroke="#D9C7A0" stroke-width="1"/>
+  <g transform="translate(100,20)">
+    <path d="M0 0c-8-10-22-12-30-4 8 6 20 8 30 4z" fill="#5C7A52" opacity="0.8"/>
+    <path d="M0 0c8-10 22-12 30-4-8 6-20 8-30 4z" fill="#5C7A52" opacity="0.55"/>
+    <circle cx="0" cy="0" r="3" fill="#C79A3D"/>
+  </g>
+</svg>
