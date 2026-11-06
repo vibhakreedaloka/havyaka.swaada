@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Havyaka Swaada | Traditional Havyaka &amp; Malnad Food Specials</title>
-<meta name="description" content="Discover Havyaka Swaada's traditional Havyaka and Malnad-side food specials including mango gojju, puliyogare gojju, pickles, drinks, and NutriPower Mix.">
+<meta name="description" content="Discover Havyaka Swaada's traditional Havyaka and Malnad-side food specials including mango gojju, puliyogare gojju, pickles and drinks.">
 <link rel="canonical" href="https://havyakaswaada.com/">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Havyaka Swaada | Traditional Havyaka & Malnad Food Specials">
-<meta property="og:description" content="Rooted in Tradition, Rich in Taste. Authentic Havyaka and Malnad-side homemade specials — mango gojju, puliyogare gojju, pickles, drinks and NutriPower Mix.">
+<meta property="og:description" content="Rooted in Tradition, Rich in Taste. Authentic Havyaka and Malnad-side homemade specials — mango gojju, puliyogare gojju, pickles and drinks.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://havyakaswaada.com/">
 <meta property="og:locale" content="en_IN">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;600;700;800&family=Noto+Sans+Kannada:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Mulish:wght@400;600;700;800&family=Noto+Sans+Kannada:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <script type="application/ld+json">
@@ -65,52 +66,77 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="container">
+    <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Havyaka &amp; Malnad Homemade Specials</span>
-        <h1>Rooted in Tradition,<br>Rich in Taste.</h1>
+        <h1>Rooted in Tradition,<br>Rich in <span class="u-gold">Taste.</span></h1>
         <p class="kannada-line">ಸಾಂಪ್ರದಾಯಿಕ, ಆರೋಗ್ಯಕರ, ರುಚಿಕರ.</p>
         <p class="lede">Discover authentic Havyaka and Malnad-side homemade specials crafted with regional flavours, family recipes, and premium ingredients.</p>
         <div class="hero-actions">
-          <a href="#" class="btn btn--primary" data-whatsapp-cta>
+          <a href="#" class="btn btn--primary btn--lg" data-whatsapp-cta>
             <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.02 3C9.4 3 4.02 8.37 4.02 15c0 2.36.65 4.56 1.78 6.44L4 29l7.74-1.75A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.63 28 15S22.65 3 16.02 3Zm0 21.7c-2.02 0-3.9-.58-5.5-1.58l-.4-.24-4.6 1.04 1.05-4.48-.26-.42A9.6 9.6 0 0 1 6.34 15c0-5.34 4.35-9.68 9.68-9.68 5.34 0 9.68 4.34 9.68 9.68 0 5.34-4.34 9.7-9.68 9.7Zm5.32-7.24c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.51h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.03c.15.2 2.06 3.14 4.98 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.13-.26-.2-.55-.34Z"/></svg>
             Order on WhatsApp
           </a>
-          <a href="#products" class="btn btn--outline">View Products</a>
+          <a href="#products" class="btn btn--outline btn--lg">View Products</a>
         </div>
-        <ul class="hero-trust">
-          <li>Homemade-style traditional taste</li>
-          <li>Regional Havyaka flavours</li>
-          <li>Prepared in small batches</li>
-        </ul>
       </div>
 
-      <div class="hero-visual">
-        <img src="images/hero.jpg" alt="Traditional Havyaka spread with mango, gojju bowl, brass tumbler and mango pickle on a banana leaf" loading="eager">
-        <div class="hero-badge">Small-batch &middot; <strong>Malnad Recipes</strong></div>
+      <div class="hero-stage">
+        <img class="hero-photo" src="images/hero-photo.jpg" width="1400" height="1400" alt="Traditional Havyaka spread on a banana leaf: a brass tumbler of mango drink, a clay bowl of gojju, a jar of mango pickle, ripe mangoes, curry leaves and dried red chillies" fetchpriority="high">
+        <a class="hotspot" style="--x:62%;--y:17%" href="#cat-drinks" aria-label="Traditional Drinks">
+          <span class="hotspot__dot"></span><span class="hotspot__label">Traditional Drinks</span>
+        </a>
+        <a class="hotspot" style="--x:71%;--y:47%" href="#cat-gojju" aria-label="Gojju and Mango Specials">
+          <span class="hotspot__dot"></span><span class="hotspot__label">Gojju &amp; Mango Specials</span>
+        </a>
+        <a class="hotspot" style="--x:72%;--y:73%" href="#cat-pickles" aria-label="Pickles">
+          <span class="hotspot__dot"></span><span class="hotspot__label">Pickles</span>
+        </a>
+        <div class="hero-badge">Homemade &middot; <strong>Malnad Recipes</strong></div>
       </div>
+    </div>
+
+    <div class="container">
+      <ul class="trust-bar reveal" aria-label="Why Havyaka Swaada">
+        <li class="is-key">
+          <span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg></span>
+          <div><strong>Truly Homemade</strong><span>Made at home, never mass-produced</span></div>
+        </li>
+        <li>
+          <span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 5-14 15-14 0 9-5 14-13 14"/><path d="M5 19c2-4 5-7 9-9"/></svg></span>
+          <div><strong>Regional Havyaka flavours</strong><span>Malnad-side recipes</span></div>
+        </li>
+        <li>
+          <span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v3H7z"/><path d="M6 7h12v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19z"/><path d="M9.5 12h5"/></svg></span>
+          <div><strong>Zero Refined Sugar, Zero Colour and Zero Preservatives</strong><span>Only the ingredients listed</span></div>
+        </li>
+        <li>
+          <span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span>
+          <div><strong>Easy to order</strong><span>One tap on WhatsApp</span></div>
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- ============ BRAND INTRO ============ -->
   <section class="section" id="about-intro">
     <div class="container intro">
-      <div class="intro-copy">
+      <div class="intro-copy reveal">
         <span class="eyebrow">Our Story</span>
         <h2>Unique flavours from the Malnad kitchen</h2>
-        <p>Havyaka Swaada brings unique homemade flavours from our region — from mango specials and puliyogare gojju to pickles, drinks, and nourishing mixes.</p>
-        <p>Every recipe is rooted in family tradition, prepared in small batches with care, so the taste stays close to home — however far from Malnad you are.</p>
+        <p>Havyaka Swaada brings unique homemade flavours from our region — from mango specials and puliyogare gojju to pickles, and drinks.</p>
+        <p>Every recipe is rooted in family tradition, prepared at home with care, so the taste stays close to home — however far from Malnad you are.</p>
       </div>
       <div class="intro-points">
         <div class="intro-point">
           <span class="num">01</span>
-          <h4>Homemade-style taste</h4>
-          <p>No mass-produced feeling — just familiar, regional flavour.</p>
+          <h4>Truly homemade</h4>
+          <p>Made at home from family recipes — never mass-produced.</p>
         </div>
         <div class="intro-point">
           <span class="num">02</span>
-          <h4>Small-batch prepared</h4>
-          <p>Carefully made in limited quantities for consistent quality.</p>
+          <h4>Zero Refined Sugar, Zero Colour and Zero Preservatives</h4>
+          <p>Only the ingredients listed on each product.</p>
         </div>
         <div class="intro-point">
           <span class="num">03</span>
@@ -138,6 +164,26 @@
     </div>
   </section>
 
+  <!-- ============ SIGNATURE SPOTLIGHT ============ -->
+  <section class="spotlight" id="signature">
+    <div class="spotlight__bg" aria-hidden="true"></div>
+    <div class="container spotlight__inner">
+      <div class="spotlight__copy reveal">
+        <span class="eyebrow eyebrow--light">Signature Flavours</span>
+        <h2>Puliyogare Gojju,<br>the Havyaka way</h2>
+        <p>Four signature mixes, each built around one regional ingredient and a traditional spice balance — ready to stir into hot rice.</p>
+        <p class="spotlight__offer"><span>Larger pack</span> 200g + 40g FREE</p>
+        <a href="#cat-puliyogare" class="btn btn--gold btn--lg">See the flavours</a>
+      </div>
+      <ul class="flavour-grid">
+        <li class="reveal"><a href="#cat-puliyogare"><img src="images/products/appe-mango-puliyogare-200g.webp" alt="" loading="lazy" decoding="async"><small>Signature</small><b>Appe Mango</b><span>Appe mango</span></a></li>
+        <li class="reveal"><a href="#cat-puliyogare"><img src="images/products/nellikaayi-puliyogare-200g.webp" alt="" loading="lazy" decoding="async"><small>Signature</small><b>Nellikaayi</b><span>Amla</span></a></li>
+        <li class="reveal"><a href="#cat-puliyogare"><img src="images/products/karibevu-puliyogare-200g.webp" alt="" loading="lazy" decoding="async"><small>Signature</small><b>Karibevu</b><span>Curry leaf</span></a></li>
+        <li class="reveal"><a href="#cat-puliyogare"><img src="images/products/veelyadele-puliyogare-200g.webp" alt="" loading="lazy" decoding="async"><small>Signature</small><b>Veelyadele</b><span>Paan leaf</span></a></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ============ PRODUCTS ============ -->
   <section class="section" id="products">
     <div class="container">
@@ -146,7 +192,7 @@
         <h2>Products</h2>
         <p>Select the items and quantities you'd like, then send your full order on WhatsApp in one tap.</p>
       </div>
-      <div class="cat-jump" id="catJump" aria-label="Jump to category"><!-- rendered by js/main.js --></div>
+      <div class="cat-jump-wrap"><nav class="cat-jump" id="catJump" aria-label="Jump to category"><!-- rendered by js/main.js --></nav></div>
       <div id="productPanels"><!-- rendered by js/main.js --></div>
     </div>
   </section>
@@ -183,16 +229,16 @@
         <img src="images/logo-full.jpg" alt="Havyaka Swaada emblem" class="about-badge">
         <div class="about-stats">
           <div>
-            <div class="num">12+</div>
+            <div class="num">11</div>
             <div class="label">Signature Products</div>
           </div>
           <div>
-            <div class="num">5</div>
+            <div class="num">4</div>
             <div class="label">Product Categories</div>
           </div>
           <div>
             <div class="num">100%</div>
-            <div class="label">Small-Batch Prepared</div>
+            <div class="label">Homemade</div>
           </div>
           <div>
             <div class="num">1</div>
@@ -203,8 +249,8 @@
       <div class="about-copy">
         <span class="eyebrow">About Havyaka Swaada</span>
         <h2>A taste rooted in Malnad tradition</h2>
-        <p>Havyaka Swaada is a traditional Havyaka and Malnad-side homemade food brand, offering unique regional products — mango specials, puliyogare gojju flavours, pickles, drinks, and nourishing mixes.</p>
-        <p>We prepare every batch with regional ingredients and time-tested family recipes, keeping the taste authentic, clean, and honest — never mass-produced.</p>
+        <p>Havyaka Swaada is a traditional Havyaka and Malnad-side homemade food brand, offering unique regional products — mango specials, puliyogare gojju flavours, pickles and drinks.</p>
+        <p>We prepare everything at home with regional ingredients and time-tested family recipes, keeping the taste authentic, clean, and honest — never mass-produced.</p>
         <div class="about-quote">"Sāmpradāyika, ārōgyakara, ruchikara" — traditional, wholesome, and full of flavour.</div>
       </div>
     </div>
@@ -271,7 +317,7 @@
         </details>
         <details class="faq-item">
           <summary>Are your products preservative-free?</summary>
-          <p>We prepare our gojju, pickles, and mixes using traditional regional methods in small batches. Please refer to each product's ingredient list and storage guidance for details.</p>
+          <p>Yes. All our products are made with Zero Refined Sugar, Zero Colour and Zero Preservatives. Please refer to each product's ingredient list and storage guidance for details.</p>
         </details>
         <details class="faq-item">
           <summary>Can I customise quantities for bulk or event orders?</summary>

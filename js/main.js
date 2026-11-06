@@ -213,22 +213,40 @@
     var savings = computeSavings(product);
     return product.prices.map(function (p, i) {
       var extraBadge = p.highlight ? '<span class="extra-badge">' + p.highlight + "</span>" : "";
-      var saveBadge = savings[i] ? '<span class="save-badge">Save &#8377;' + savings[i].amount + " &middot; " + savings[i].percent + "%</span>" : "";
+      var saveBadge = "";
+      if (p.save) {
+        saveBadge = '<span class="save-badge">Save &#8377;' + p.save + "</span>";
+      } else if (savings[i]) {
+        saveBadge = '<span class="save-badge">Save &#8377;' + savings[i].amount + " &middot; " + savings[i].percent + "%</span>";
+      }
+      var perGram = p.perGram ? '<span class="pergram-badge">&#8377;' + p.perGram + "/g</span>" : "";
       var key = cartKey(slug, i);
-      return (
-        '<div class="variant-row" data-cart-key="' + key + '">' +
-          '<span class="variant-row__label">' +
-            '<span class="variant-row__price-line">' + p.label + '<b>&#8377;' + p.price + "</b></span>" +
-            extraBadge + saveBadge +
-          "</span>" +
-          '<div class="qty-stepper">' +
+      var control = product.soldOut
+        ? '<span class="soldout-tag">Out of stock</span>'
+        : '<div class="qty-stepper">' +
             '<button type="button" data-step="-1" disabled aria-label="Decrease ' + p.label + ' quantity">&minus;</button>' +
             '<span class="qty-value">0</span>' +
             '<button type="button" data-step="1" aria-label="Increase ' + p.label + ' quantity">&plus;</button>' +
-          "</div>" +
+          "</div>";
+      return (
+        '<div class="variant-row' + (product.soldOut ? " is-soldout" : "") + (p.image ? " has-photo" : "") + '" data-cart-key="' + key + '"' + (p.image ? ' data-photo="' + p.image + '" data-photo-label="' + p.label + '"' : "") + ">" +
+          '<span class="variant-row__label">' +
+            '<span class="variant-row__price-line">' + p.label + '<b>&#8377;' + Number(p.price).toLocaleString("en-IN") + "</b></span>" +
+            ((extraBadge || saveBadge || perGram) ? '<span class="badge-line">' + perGram + saveBadge + extraBadge + "</span>" : "") +
+          "</span>" +
+          control +
         "</div>"
       );
     }).join("");
+  }
+
+  function buildHowTo(product) {
+    var h = product.howTo;
+    if (!h || !h.steps || !h.steps.length) return "";
+    var items = h.steps.map(function (s, i) {
+      return '<li><span class="howto-num">' + (i + 1) + '</span><div><strong>' + s.title + "</strong><p>" + s.text + "</p></div></li>";
+    }).join("");
+    return '<details class="product-details product-howto"><summary>' + (h.title || "How to use") + '</summary><ol class="howto-list">' + items + "</ol></details>";
   }
 
   function buildDetails(product) {
@@ -236,31 +254,44 @@
     if (product.ingredients) rows += "<dt>Ingredients</dt><dd>" + product.ingredients + "</dd>";
     if (product.usage) rows += "<dt>How to use</dt><dd>" + product.usage + "</dd>";
     if (product.netQty) rows += "<dt>Net Quantity</dt><dd>" + product.netQty + "</dd>";
-    if (product.packedDate) rows += "<dt>Packed Date</dt><dd>" + product.packedDate + "</dd>";
     if (product.bestBefore) rows += "<dt>Best Before</dt><dd>" + product.bestBefore + "</dd>";
-    if (product.packing) rows += "<dt>Packing</dt><dd>" + product.packing + "</dd>";
     if (product.storage) rows += "<dt>Storage</dt><dd>" + product.storage + "</dd>";
-    if (!rows) return "";
-    return '<details class="product-details"><summary>Ingredients &amp; details</summary><dl>' + rows + "</dl></details>";
+    var out = "";
+    if (rows) out += '<details class="product-details"><summary>Ingredients &amp; details</summary><dl>' + rows + "</dl></details>";
+    return buildHowTo(product) + out;
   }
 
   function buildProductCard(product) {
     var slug = slugify(product.name);
     var kannada = product.kannada ? '<p class="kannada">' + product.kannada + "</p>" : "";
     var supporting = product.supportingLine ? '<p class="tagline">' + product.supportingLine + "</p>" : "";
-    var badge = product.badge ? '<span class="product-badge">' + product.badge + "</span>" : "";
+    var badge = product.soldOut
+      ? '<span class="product-badge product-badge--soldout">Out of stock</span>'
+      : (product.badge ? '<span class="product-badge">' + product.badge + "</span>" : "");
+
+    var photo = product.image
+      ? '<figure class="product-photo"><img src="' + product.image + '" alt="' + product.name + '" loading="lazy" decoding="async"></figure>'
+      : "";
+    var pills = product.pills && product.pills.length
+      ? '<ul class="pill-row">' + product.pills.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>"
+      : "";
 
     return (
-      '<article class="product-card" data-product-slug="' + slug + '" data-product=\'' + JSON.stringify(product).replace(/'/g, "&#39;") + "'>" +
-        badge +
-        "<h3>" + product.name + "</h3>" +
-        kannada +
-        '<p class="tagline">' + product.tagline + "</p>" +
-        supporting +
-        '<p class="desc">' + product.description + "</p>" +
-        '<div class="price-row">' + buildVariantRows(product, slug) + "</div>" +
-        '<p class="added-indicator" hidden>Added to your order</p>' +
-        buildDetails(product) +
+      '<article class="product-card reveal' + (product.image ? " has-photo" : "") + (product.soldOut ? " is-soldout" : "") + '" data-product-slug="' + slug + '" data-product=\'' + JSON.stringify(product).replace(/'/g, "&#39;") + "'>" +
+        photo +
+        '<div class="product-card__body">' +
+          badge +
+          "<h3>" + product.name + "</h3>" +
+          kannada +
+          '<p class="tagline">' + product.tagline + "</p>" +
+          supporting +
+          '<p class="desc">' + product.description + "</p>" +
+          pills +
+          '<div class="price-row">' + buildVariantRows(product, slug) + "</div>" +
+          (product.soldOut ? '<p class="soldout-note">Currently out of stock. Message us on WhatsApp to know when it is back.</p>' : "") +
+          '<p class="added-indicator" hidden>Added to your order</p>' +
+          buildDetails(product) +
+        "</div>" +
       "</article>"
     );
   }
@@ -269,11 +300,15 @@
     var wrap = document.getElementById("categoryPreview");
     if (!wrap) return;
     wrap.innerHTML = PRODUCT_CATEGORIES.map(function (cat) {
+      var arch = cat.photo
+        ? '<img src="' + cat.photo + '" alt="" loading="lazy">'
+        : '<span class="cat-card__icon"><img src="' + cat.icon + '" alt="" loading="lazy"></span>';
       return (
-        '<a class="cat-card" href="#cat-' + cat.id + '">' +
-          '<img src="' + cat.icon + '" alt="" loading="lazy">' +
+        '<a class="cat-card reveal" href="#cat-' + cat.id + '">' +
+          '<span class="cat-card__arch' + (cat.photo ? "" : " is-empty") + '">' + arch + "</span>" +
           "<h4>" + cat.label + "</h4>" +
           "<p>" + cat.blurb + "</p>" +
+          '<span class="cat-card__cta">Explore <i aria-hidden="true">&rarr;</i></span>' +
         "</a>"
       );
     }).join("");
@@ -295,14 +330,21 @@
       var divider = i === 0 ? "" : '<img class="category-divider" src="images/leaf-divider.svg" alt="" aria-hidden="true">';
       var note = cat.note ? '<p class="tab-panel-note">' + cat.note + "</p>" : "";
       var cards = cat.products.map(buildProductCard).join("");
+      var banner = cat.banner
+        ? '<figure class="category-banner reveal"><img src="' + cat.banner + '" alt="' + (cat.bannerAlt || cat.label) + '" loading="lazy" decoding="async"></figure>'
+        : "";
+      var thumb = cat.photo
+        ? '<img class="category-thumb" src="' + cat.photo + '" alt="" loading="lazy">'
+        : '<img src="' + cat.icon + '" alt="">';
       return (
         divider +
         '<div class="category-section" id="cat-' + cat.id + '">' +
           '<div class="category-section-head">' +
-            '<img src="' + cat.icon + '" alt="">' +
+            thumb +
             "<div><h3>" + cat.label + "</h3><p>" + cat.blurb + "</p></div>" +
           "</div>" +
           note +
+          banner +
           '<div class="product-grid">' + cards + "</div>" +
         "</div>"
       );
@@ -314,6 +356,25 @@
     if (!wrap) return;
 
     wrap.addEventListener("click", function (e) {
+      /* Tapping a size row swaps the card photo to that size's pack shot */
+      var photoRow = e.target.closest(".variant-row[data-photo]");
+      if (photoRow) {
+        var card = photoRow.closest(".product-card");
+        var img = card && card.querySelector(".product-photo img");
+        var next = photoRow.getAttribute("data-photo");
+        if (img && next && img.getAttribute("src") !== next) {
+          img.classList.add("is-swapping");
+          var pre = new Image();
+          pre.onload = function () {
+            img.setAttribute("src", next);
+            img.alt = card.querySelector("h3").textContent + " " + photoRow.getAttribute("data-photo-label");
+            img.classList.remove("is-swapping");
+          };
+          pre.src = next;
+        }
+        card.querySelectorAll(".variant-row.is-viewing").forEach(function (el) { el.classList.remove("is-viewing"); });
+        photoRow.classList.add("is-viewing");
+      }
       var stepBtn = e.target.closest("[data-step]");
       if (!stepBtn) return;
       var row = stepBtn.closest(".variant-row");
@@ -351,6 +412,67 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  /* ---------------- Header shadow once the page scrolls ---------------- */
+  function wireHeaderScroll() {
+    var header = document.getElementById("siteHeader");
+    if (!header) return;
+    function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 8); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------------- Sticky category bar: highlight the section in view ---------------- */
+  function wireScrollSpy() {
+    var bar = document.getElementById("catJump");
+    var sections = document.querySelectorAll(".category-section");
+    if (!bar || !sections.length || !("IntersectionObserver" in window)) return;
+
+    var links = {};
+    bar.querySelectorAll("a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+
+    function activate(id) {
+      Object.keys(links).forEach(function (k) { links[k].classList.toggle("is-active", k === id); });
+      var active = links[id];
+      if (active && bar.scrollWidth > bar.clientWidth) {
+        var target = active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2;
+        bar.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+      }
+    }
+
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) activate(entry.target.id);
+      });
+    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------------- Gentle fade-up reveal (skipped for reduced motion) ---------------- */
+  function wireReveal() {
+    var items = document.querySelectorAll(".reveal");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("is-in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          el.classList.add("is-in");
+          io.unobserve(el);
+          // Drop the stagger delay once revealed so hover effects stay instant
+          setTimeout(function () { el.style.transitionDelay = ""; }, 1000);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = ((i % 5) * 60) + "ms";
+      io.observe(el);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     renderCategoryPreview();
     renderCatJump();
@@ -359,6 +481,9 @@
     wireOrderBar();
     wireOrderButtons();
     wireNavToggle();
+    wireHeaderScroll();
+    wireScrollSpy();
+    wireReveal();
     setYear();
   });
 })();

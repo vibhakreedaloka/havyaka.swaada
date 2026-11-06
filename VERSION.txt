@@ -1,8 +1,38 @@
 Havyaka Swaada Website
-Version: 1.2.5
+Version: 1.3.7
 Released: 2026-08-08
 
 Changelog:
+- 1.3.7 (2026-11-06): Drinks category card: Neer Gojju bottle centred and larger.
+- 1.3.6 (2026-11-06): Drinks category card now shows the three bottles.
+- 1.3.5 (2026-11-06): Bottle photos added for the three drinks.
+- 1.3.4 (2026-11-06): Drinks banner removed. Each drink is now a single
+  165ml size at Rs.80 (Shot/Medium/Full sizes removed). Drink photos to be
+  added per item.
+- 1.3.3 (2026-11-06): Real product photos (transparent pack shots, WebP).
+  Mandan Gojju and Mango GuLa show a photo for every size - tap a size row
+  and the card photo changes. Puliyogare and pickle photos added. New
+  category photos for Gojju, Pickles and Puliyogare; drinks banner above the
+  Drinks cards; pack shots in the Signature band.
+- 1.3.2 (2026-11-05): Content update. "Truly Homemade" highlighted; "Zero
+  Refined Sugar, Zero Colour and Zero Preservatives" replaces "small-batch";
+  NutriPower Mix removed; Mango GuLa marked Out of stock; puliyogare order
+  now Appe Mango, Nellikaayi, Karibevu, Veelyadele; Hunase Khatta Meetha
+  renamed Malnad Natural Energy Drink; Mango Theeka Meetha renamed Mango Pulp
+  Drink; Mandan Gojju & Mango GuLa now 50g/100g/200g/500g/1000g with savings
+  and per-gram rates; "How to use" steps added for both; batch number and
+  packed date removed everywhere.
+- 1.3.1 (2026-11-04): Headings changed from Marcellus to Playfair Display
+  (bolder, clearer on phones). Body text stays Mulish; Kannada stays Noto
+  Sans Kannada. Hero headline resized to sit on two lines.
+- 1.3.0 (2026-11-03): Visual redesign. New full-bleed hero photo with
+  clickable category hotspots and a trust bar; arch-shaped category photo
+  cards; dark "Signature Flavours" band for the puliyogare range; sticky
+  category bar that highlights the section you are in; short fact pills on
+  product cards (no unverifiable claims); optional product photos (add
+  `image` in js/products.js, `photo` for categories); soft scroll reveal and
+  header shadow. Fixed a bug where hidden elements (order panel, "0" badge,
+  "Added" tick) were showing on load. Prices and product facts unchanged.
 - 1.2.5 (2026-08-08): Fixed two visual bugs on product cards. (1) The
   "SIGNATURE" badge was overlapping longer product titles like "Nellikaayi
   Puliyogare Gojju" and "Karibevu Puliyogare Gojju" — increased the title's
